@@ -9,11 +9,8 @@ public class DefaultTokenizer(override val tokens: List<Token>) : Tokenizer {
         require(tokens.isNotEmpty()) { "The tokens list should not be empty" }
     }
 
-    /** Tokenizes the [input] from a [String] into a [TokenMatchesSequence]. */
-    override fun tokenize(input: String): TokenMatchesSequence = tokenize(input as CharSequence)
-
     /** Tokenizes the [input] from a [CharSequence] into a [TokenMatchesSequence]. */
-    public fun tokenize(input: CharSequence): TokenMatchesSequence =
+    override fun tokenize(input: CharSequence): TokenMatchesSequence =
         TokenMatchesSequence(DefaultTokenProducer(tokens, input))
 }
 
